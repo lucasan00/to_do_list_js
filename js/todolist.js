@@ -27,7 +27,10 @@ function addLi(targetUl) {
 }
 
 function countdown(minuti, secondi, msecondi) {
-  console.log(minuti+secondi+msecondi);
+  //console.log(minuti+secondi+msecondi);
+  if(minuti == 0 && secondi == 0 && msecondi == 0) {
+    alert("La pappa è pronta!!!");
+  }
 
   if(msecondi <= 0) {
     msecondi = 9;
@@ -38,12 +41,13 @@ function countdown(minuti, secondi, msecondi) {
     msecondi = 9;
     minuti--;
   }
+
   if(secondi <= -1) {
     msecondi = 0;
     secondi++;
   } else {
     msecondi--;
-
+//console.log(minuti + " : " + secondi + " : " + msecondi);
 //document.getElementById("count").value = minuti + " : " + secondi + " : " + msecondi;
 document.getElementById("cd").innerHTML = minuti + " : " + secondi + " : " + msecondi;
 setTimeout("countdown("+minuti+", "+secondi+", "+msecondi+")", 100);
@@ -62,4 +66,5 @@ add.onclick = function () {
 
 removeAll.onclick = function () {
   ul.innerHTML = '';
+  document.getElementById("cd").innerHTML = '';
 };
