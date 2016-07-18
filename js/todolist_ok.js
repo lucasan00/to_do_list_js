@@ -10,7 +10,6 @@ function addLi(targetUl) {
       startButton = document.createElement('button');
       removeButton = document.createElement('button');
       textCountdown = document.createElement('div');
-      cdId = document.createElement('input');
 
   if (inputText.split(' ').join('').length === 0) {
 //     Check for empty inputs (only spaces are not enough)
@@ -19,12 +18,10 @@ function addLi(targetUl) {
   }
 
   startButton.className = 'start';
-  textCountdown.id = 'countDowndiv'+inputText;
-  cdId.id = inputText;
-  cdId.value = document.getElementById('text2').value;
+  textCountdown.id = 'countDowndiv';
   startButton.innerHTML = ' START!';
-  startButton.setAttribute('onclick', 'startInner("'+inputText+'");');
-  //startButton.setAttribute('onclick', 'start();');
+  //startButton.setAttribute('onclick', 'start("'+inputText+'");');
+  startButton.setAttribute('onclick', 'start();');
   removeButton.className = 'removeMe';
   removeButton.innerHTML = ' DONE!';
   removeButton.setAttribute('onclick', 'removeMe(this);');
@@ -35,19 +32,8 @@ function addLi(targetUl) {
   li.appendChild(removeButton);
   li.appendChild(textCountdown);
 
-  li.appendChild(cdId);
-
   targetUl.appendChild(li);
 }
-
-function startInner(cdId) {
-  countdown(document.getElementById(cdId).value,1,1,cdId);
-  //document.getElementById('cd').innerHTML += "<div id='"+id+"'></div>";
-  alert("start"+cdId);
-  //document.getElementById('cd').appendChild('cd');
-  //document.getElementById('cd').childNodes.length+1;
-}
-
 
 function start() {
   countdown(document.getElementById('text2').value,1,1);
@@ -57,7 +43,7 @@ function start() {
   document.getElementById('cd').childNodes.length+1;
 }
 
-function countdown(minuti, secondi, msecondi, cdId) {
+function countdown(minuti, secondi, msecondi) {
   //console.log(minuti+secondi+msecondi);
   if(minuti == 0 && secondi == 0 && msecondi == 0) {
     alert("La pappa è pronta!!!");
@@ -80,8 +66,8 @@ function countdown(minuti, secondi, msecondi, cdId) {
     msecondi--;
 
 //stampa a video il countdown
-document.getElementById("countDowndiv"+cdId).innerHTML = minuti + " : " + secondi + " : " + msecondi;
-setTimeout("countdown("+minuti+", "+secondi+", "+msecondi+", '"+cdId+"')", 100);
+document.getElementById("countDowndiv").innerHTML = minuti + " : " + secondi + " : " + msecondi;
+setTimeout("countdown("+minuti+", "+secondi+", "+msecondi+")", 100);
 }
 }
 

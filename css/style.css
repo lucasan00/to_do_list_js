@@ -47,17 +47,27 @@ button#add {
   background-color: #46b98a;
 }
 
-  button#add:hover {
+button#add:hover {
     background-color: #3fa67c;
-  }
+}
 
+button.start {
+    padding: 5px;
+    font-size: 13px;
+    margin-left: 10px;
+    font-weight: 700;
+}
+
+button.start:hover {
+      background-color: #46b98a;
+}
 button#removeAll {
   background-color: #E0645C;
 }
 
-  button#removeAll:hover {
+button#removeAll:hover {
     background-color: #c95a52;
-  }
+}
 
 button.removeMe {
   padding: 5px;
@@ -69,6 +79,8 @@ button.removeMe {
   button.removeMe:hover {
     background-color: #46b98a;
   }
+
+
 
 ul#list {
   margin: 0;
